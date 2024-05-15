@@ -1,3 +1,4 @@
+from icecream import ic
 from medicine_classes import Medicine
 
 

@@ -27,9 +27,6 @@ print(till_bday)
 pomysły: funkcja dodawania pudełka/listka lub po prostu dodawanie x tabletek
 
 konieczne funkcje: 
-    4. Obliczanie ilości dni do wyczerpania zapasu z daną dawką dzienną i daną ilością leku w dawce (może *args będzie 
-    dobre żeby można było do jednej funkcji wrzucić ten sam lek w różnych dawkach na tabletkę czyli dwie instancje)
-    Chyba wtedy trzebaby zrobić krotki, pomyśl jak to zrobić.
     
     1. Funkcja przyjmująca ilość tabletek i zwracająca ilość w miligramach - done
     
@@ -38,6 +35,12 @@ konieczne funkcje:
     3. Metoda obliczająca obecną ilość leku
         3.0 Funkcja do tworzenia instancji leku i przy okazji słownika - done
         3.1 Metoda tworząca słownik {lek: (ilość_leku_w_mg, data dodania/modyfikacji)} (w zależności od tego czy przy tworzeniu leku czy przy dodawaniu) - done
-        3.2 Metoda zapisująca przy stworzeniu instancji do pliku ile jest leku
-        3.3 Metoda aktualizująca przy dodaniu leku dane w pliku
+        3.1.2 Ogarnij dobre formatowanie daty w krotce w słowniku
+        3.2 Metoda zapisująca przy stworzeniu instancji do pliku ile jest leku (przerzuć z main_program)
+        3.3 Metoda aktualizująca przy dodaniu leku dane w pliku (rozbuduj metodę add_medicine)
+        
+    4. Obliczanie ilości dni do wyczerpania zapasu z daną dawką dzienną i daną ilością leku w dawce (może *args będzie 
+        dobre żeby można było do jednej funkcji wrzucić ten sam lek w różnych dawkach na tabletkę czyli dwie instancje)
+        Chyba wtedy trzebaby zrobić krotki, pomyśl jak to zrobić.
+    
 '''

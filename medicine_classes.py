@@ -1,3 +1,4 @@
+from icecream import ic
 import datetime as dt
 
 class Medicine:
@@ -14,14 +15,13 @@ class Medicine:
         __str__(self): describes instance nicely
         __repr__(self): describes instance concretely
     """
-    instances = {}  # dictionary shared by all instances
+    instances = {}  # dictionary before __init__ is shared by all instances
     
     def __init__(self, name, dose, daily_dose, current_amount):  # initializes attributes
         self.__name = name  # podwójny podkreślnik sprawia, że atrybut staje się prywatny i żeby do niego dotrzeć trzeba to zrobić przez getter/setter albo się nagimnastykować
         self.__dose = dose  # to nie dotyczy metod z podwójnymi podkreślnikami z obu stron np. __init__(), to są metody specjalne
         self.__daily_dose = daily_dose
         self.__current_amount = current_amount
-        # self.instances = {}  ## sprawdź czy nie przełożyć tego nad init żeby działało dla wszystkich instancji !!!
         self.add_medicine_to_dict(self.instances)
     
     
@@ -83,6 +83,7 @@ class Medicine:
     
     
     def add_medicine_to_dict(self, dict_name):
+        assert isinstance(dict_name, dict), 'dict_name id supposed to be DICT'
         dict_name[self.name] = (self.how_much_in_mg(), dt.date.today()) ## ogarnij drugi argument krotki !!!
     
     
@@ -93,7 +94,7 @@ class Medicine:
     
     
     def how_much_in_mg(self):
-        """Takes medicine's names (STR) and returns amount of the medicine in milligrams"""
+        """Basing on self.current_amount returns amount of the medicine in milligrams"""
         amount_of_pills = self.current_amount
         mg_per_pill = self.dose
         amount_of_mg = amount_of_pills * mg_per_pill
