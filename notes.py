@@ -36,8 +36,8 @@ konieczne funkcje:
     2. Funkcja przyjmująca dwie tabletki o różnych dawkach i zamieniająca na jedną - done
     
     3. Metoda obliczająca obecną ilość leku
-        3.0 Funkcja do tworzenia instancji leku i przy okazji słownika
-        3.1 Metoda tworząca słownik {lek: (ilość_leku_w_mg, data)}
+        3.0 Funkcja do tworzenia instancji leku i przy okazji słownika - done
+        3.1 Metoda tworząca słownik {lek: (ilość_leku_w_mg, data dodania/modyfikacji)} (w zależności od tego czy przy tworzeniu leku czy przy dodawaniu) - done
         3.2 Metoda zapisująca przy stworzeniu instancji do pliku ile jest leku
         3.3 Metoda aktualizująca przy dodaniu leku dane w pliku
 '''

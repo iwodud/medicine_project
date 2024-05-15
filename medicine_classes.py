@@ -1,3 +1,5 @@
+import datetime as dt
+
 class Medicine:
     """Class Medicine contains arguments necessary to calculate time after which the medicine will run out.
 
@@ -12,11 +14,15 @@ class Medicine:
         __str__(self): describes instance nicely
         __repr__(self): describes instance concretely
     """
+    instances = {}  # dictionary shared by all instances
+    
     def __init__(self, name, dose, daily_dose, current_amount):  # initializes attributes
         self.__name = name  # podwójny podkreślnik sprawia, że atrybut staje się prywatny i żeby do niego dotrzeć trzeba to zrobić przez getter/setter albo się nagimnastykować
         self.__dose = dose  # to nie dotyczy metod z podwójnymi podkreślnikami z obu stron np. __init__(), to są metody specjalne
         self.__daily_dose = daily_dose
         self.__current_amount = current_amount
+        # self.instances = {}  ## sprawdź czy nie przełożyć tego nad init żeby działało dla wszystkich instancji !!!
+        self.add_medicine_to_dict(self.instances)
     
     
     @property  # @property to dekorator do tworzenia automatycznych getterów, jak nie wiesz co to dekorator to olej to
@@ -76,9 +82,22 @@ class Medicine:
             print(e)
     
     
-    def add_medicine(self, amount_of_pills):
+    def add_medicine_to_dict(self, dict_name):
+        dict_name[self.name] = (self.how_much_in_mg(), dt.date.today()) ## ogarnij drugi argument krotki !!!
+    
+    
+    def add_medicine(self, amount_of_pills):  # funkcja jeszcze nie gotowa, trzeba ją rozbudować (i to porządnie), tego komentarza nie usuwaj
+        """Adds more pills to an instance"""
         assert isinstance(amount_of_pills, int), 'amount_of_pills is supposed to be INT'
         self.current_amount += amount_of_pills
+    
+    
+    def how_much_in_mg(self):
+        """Takes medicine's names (STR) and returns amount of the medicine in milligrams"""
+        amount_of_pills = self.current_amount
+        mg_per_pill = self.dose
+        amount_of_mg = amount_of_pills * mg_per_pill
+        return amount_of_mg
     
     
     def __str__(self):  # __str__() i __repr__() używam z przyzwyczajenia, tak mi wpojono. W docstringu masz co robią. 

@@ -11,7 +11,9 @@ def how_many_days_to(start_day, end_day):
 
 today = dt.date.today()
 delta = dt.timedelta(days=7)
-print(today + delta)
+# print(today + delta)
 
 def add(a, b):
     return a + b
+
+print(today)
