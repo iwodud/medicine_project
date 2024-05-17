@@ -1,5 +1,6 @@
 from icecream import ic
 import datetime as dt
+import pickle
 
 class Medicine:
     """Class Medicine contains arguments necessary to calculate time after which the medicine will run out.
@@ -14,6 +15,10 @@ class Medicine:
         __init__(self, name, dose, daily_dose, current_amount): initializes arguments 
         __str__(self): describes instance nicely
         __repr__(self): describes instance concretely
+        add_medicine_to_dict(self, dict_name): adds name of an instance (self.name) to dictionary with a given name (dict_name)
+        append_instance_to_file(self, file_name='instances.p'): appends instance of Medicine to dictionary in file (default instances.p). If file doesn't exist, creates the file
+        add_medicine(self, amount_of_pills): not ready yet
+        how_much_in_mg(self): basing on self.current_amount returns amount of the medicine in milligrams
     """
     instances = {}  # dictionary before __init__ is shared by all instances
     
@@ -23,6 +28,7 @@ class Medicine:
         self.__daily_dose = daily_dose
         self.__current_amount = current_amount
         self.add_medicine_to_dict(self.instances)
+        self.append_instance_to_file()
     
     
     @property  # @property to dekorator do tworzenia automatycznych getterów, jak nie wiesz co to dekorator to olej to
@@ -83,8 +89,25 @@ class Medicine:
     
     
     def add_medicine_to_dict(self, dict_name):
+        """Adds name_dose of an instance (self.name + _ + self.dose), with tuple (self.how_much_in_mg(), dt.date.today()) 
+        as value, to dictionary with a given name (dict_name)"""
         assert isinstance(dict_name, dict), 'dict_name id supposed to be DICT'
-        dict_name[self.name] = (self.how_much_in_mg(), dt.date.today()) ## ogarnij drugi argument krotki !!!
+        dict_name[str(self.name) + '_' + str(self.dose)] = (self.how_much_in_mg(), dt.date.today()) ## ogarnij drugi argument krotki !!!
+    
+    
+    def append_instance_to_file(self, file_name='instances.p'):
+        """Appends instance of Medicine to dictionary in file (default instances.p). If file doesn't exist, creates the file"""
+        assert isinstance(file_name, str), 'file_name is supposed to be STR'
+        try:
+            with open(file_name, 'rb') as file:
+                instances_dict = pickle.load(file)
+        except (FileNotFoundError, EOFError):
+            instances_dict = {}
+
+        self.add_medicine_to_dict(instances_dict)
+
+        with open(file_name, 'wb') as file:
+            pickle.dump(instances_dict, file)
     
     
     def add_medicine(self, amount_of_pills):  # funkcja jeszcze nie gotowa, trzeba ją rozbudować (i to porządnie), tego komentarza nie usuwaj
