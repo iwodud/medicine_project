@@ -95,6 +95,35 @@ class Medicine:
         dict_name[str(self.name) + '_' + str(self.dose)] = (self.how_much_in_mg(), dt.date.today()) ## ogarnij drugi argument krotki !!!
     
     
+    def remove_medicine_from_dict(self, dict_name, key):
+        """Removes given key (key) from given dictionary (dict_name). Returns None"""
+        assert isinstance(dict_name, dict), 'dict_name is supposed to be a DICT'
+        try:
+            del dict_name[key]
+        except KeyError:
+            print(f'Key "{key}" was not found in dictionary')
+        return None
+    
+    
+    # na razie problem z tym plikiem jest taki, że nie można go poza klasą wywołać nie dając przed kropką instancji, ogarnij to
+    def remove_instance_from_file(self, key=None, file_name='instances.p'):
+        """Removes instance of Medicine from dictionary in file. By default it removes itself from instances.p"""
+        assert isinstance(file_name, str), 'file_name is supposed to be STR'
+        if key is None:
+            key = str(self.name) + '_' + str(self.dose)
+        try:
+            with open(file_name, 'rb') as file:
+                instances_dict = pickle.load(file)
+        except (FileNotFoundError, EOFError):
+            print(f'File {file_name} doesn\'t exist')
+            return None
+
+        self.remove_medicine_from_dict(instances_dict, key)
+
+        with open(file_name, 'wb') as file:
+            pickle.dump(instances_dict, file)
+    
+    
     def append_instance_to_file(self, file_name='instances.p'):
         """Appends instance of Medicine to dictionary in file (default instances.p). If file doesn't exist, creates the file"""
         assert isinstance(file_name, str), 'file_name is supposed to be STR'

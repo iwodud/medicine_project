@@ -33,6 +33,9 @@ neurotop_600 = Medicine('neurotop', 600, 1200, 40)
 lacosamide_100 = Medicine('lacosamide', 100, 200, 50)
 
 
-ic(Medicine.instances)
-
+# ic(Medicine.instances)
+data = read_pickle_file('instances.p')
+neurotop_600.remove_instance_from_file()
 ic(read_pickle_file('instances.p'))
+
+print(data['lacosamide_100'][1])
