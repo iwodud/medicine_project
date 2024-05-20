@@ -23,20 +23,20 @@ class Medicine:
     instances = {}  # dictionary before __init__ is shared by all instances
     
     def __init__(self, name, dose, daily_dose, current_amount):  # initializes attributes
-        self.__name = name  # podwójny podkreślnik sprawia, że atrybut staje się prywatny i żeby do niego dotrzeć trzeba to zrobić przez getter/setter albo się nagimnastykować
-        self.__dose = dose  # to nie dotyczy metod z podwójnymi podkreślnikami z obu stron np. __init__(), to są metody specjalne
+        self.__name = name
+        self.__dose = dose
         self.__daily_dose = daily_dose
         self.__current_amount = current_amount
         self.add_medicine_to_dict(self.instances)
         self.append_instance_to_file()
     
     
-    @property  # @property to dekorator do tworzenia automatycznych getterów, jak nie wiesz co to dekorator to olej to
+    @property
     def name(self):
         return self.__name
     
     
-    @name.setter  # tutaj to samo tylko do setterów. można sobie poustawiać rzeczy w setterze. Trzeba taki cyrk robić z każdym atrybutem niestety :/
+    @name.setter
     def name(self, var):
         assert isinstance(var, str), 'name is supposed to be STR'
         try:
