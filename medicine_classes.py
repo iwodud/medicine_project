@@ -27,8 +27,8 @@ class Medicine:
         self.__dose = dose  # to nie dotyczy metod z podwójnymi podkreślnikami z obu stron np. __init__(), to są metody specjalne
         self.__daily_dose = daily_dose
         self.__current_amount = current_amount
-        self.add_medicine_to_dict(self.instances)
-        self.append_instance_to_file()
+        self._add_medicine_to_dict(self.instances)
+        self._append_instance_to_file()
     
     
     @property  # @property to dekorator do tworzenia automatycznych getterów, jak nie wiesz co to dekorator to olej to
@@ -88,14 +88,14 @@ class Medicine:
             print(e)
     
     
-    def add_medicine_to_dict(self, dict_name):
+    def _add_medicine_to_dict(self, dict_name):
         """Adds name_dose of an instance (self.name + _ + self.dose), with tuple (self.how_much_in_mg(), dt.date.today()) 
         as value, to dictionary with a given name (dict_name)"""
         assert isinstance(dict_name, dict), 'dict_name id supposed to be DICT'
         dict_name[str(self.name) + '_' + str(self.dose)] = (self.how_much_in_mg(), dt.date.today()) ## ogarnij drugi argument krotki !!!
     
     
-    def remove_medicine_from_dict(self, dict_name, key):
+    def _remove_medicine_from_dict(self, dict_name, key):
         """Removes given key (key) from given dictionary (dict_name). Returns None"""
         assert isinstance(dict_name, dict), 'dict_name is supposed to be a DICT'
         try:
@@ -105,8 +105,7 @@ class Medicine:
         return None
     
     
-    # na razie problem z tym plikiem jest taki, że nie można go poza klasą wywołać nie dając przed kropką instancji, ogarnij to
-    def remove_instance_from_file(self, key=None, file_name='instances.p'):
+    def _remove_instance_from_file(self, key=None, file_name='instances.p'):
         """Removes instance of Medicine from dictionary in file. By default it removes itself from instances.p"""
         assert isinstance(file_name, str), 'file_name is supposed to be STR'
         if key is None:
@@ -118,13 +117,13 @@ class Medicine:
             print(f'File {file_name} doesn\'t exist')
             return None
 
-        self.remove_medicine_from_dict(instances_dict, key)
+        self._remove_medicine_from_dict(instances_dict, key)
 
         with open(file_name, 'wb') as file:
             pickle.dump(instances_dict, file)
     
     
-    def append_instance_to_file(self, file_name='instances.p'):
+    def _append_instance_to_file(self, file_name='instances.p'):
         """Appends instance of Medicine to dictionary in file (default instances.p). If file doesn't exist, creates the file"""
         assert isinstance(file_name, str), 'file_name is supposed to be STR'
         try:
@@ -133,7 +132,7 @@ class Medicine:
         except (FileNotFoundError, EOFError):
             instances_dict = {}
 
-        self.add_medicine_to_dict(instances_dict)
+        self._add_medicine_to_dict(instances_dict)
 
         with open(file_name, 'wb') as file:
             pickle.dump(instances_dict, file)
