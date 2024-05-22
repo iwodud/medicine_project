@@ -1,6 +1,6 @@
-from icecream import ic
-from medicine_classes import Medicine
 import pickle
+from icecream import ic
+from medicine.medicine_classes import Medicine
 
 
 def save_dict_to_file(dictionary, file_name):
@@ -34,8 +34,15 @@ lacosamide_100 = Medicine('lacosamide', 100, 200, 50)
 
 
 # ic(Medicine.instances)
-data = read_pickle_file('instances.p')
-neurotop_600.remove_instance_from_file()
-ic(read_pickle_file('instances.p'))
 
-print(data['lacosamide_100'][1])
+
+def run():
+    data = read_pickle_file('instances.p')
+    neurotop_600.remove_instance_from_file()
+    ic(read_pickle_file('instances.p'))
+
+    print(data['lacosamide_100'][1])
+
+
+if __name__ == '__main__':
+    run()
