@@ -1,0 +1,26 @@
+[
+    {
+        "name": "vetira",
+        "dose": 500,
+        "daily_dose": 1500,
+        "current_amount": 10
+    },
+    {
+        "name": "vetira",
+        "dose": 750,
+        "daily_dose": 1500,
+        "current_amount": 10
+    },
+    {
+        "name": "neurotop",
+        "dose": 600,
+        "daily_dose": 1200,
+        "current_amount": 40
+    },
+    {
+        "name": "lacosamide",
+        "dose": 100,
+        "daily_dose": 200,
+        "current_amount": 50
+    }
+]
