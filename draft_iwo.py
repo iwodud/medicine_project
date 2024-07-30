@@ -1,5 +1,5 @@
 from icecream import ic
-from medicine_classes import Medicine        
+from medicine.medicine import Medicine        
 
 
 example_dict = {

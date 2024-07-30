@@ -1,6 +1,6 @@
 import pickle
 from icecream import ic
-from medicine.medicine_classes import Medicine
+from medicine.medicine import Medicine
 
 
 def save_dict_to_file(dictionary, file_name):

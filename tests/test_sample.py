@@ -1,5 +1,5 @@
 import pytest
-from medicine.medicine_classes import Medicine, how_much_in_mg
+from medicine.medicine import Medicine, how_much_in_mg
 
 
 vetira_500 = Medicine('vetira', 500, 1500, 10)

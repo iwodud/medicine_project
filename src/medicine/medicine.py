@@ -92,7 +92,7 @@ class Medicine:
         """Adds name_dose of an instance (self.name + _ + self.dose), with tuple (self.how_much_in_mg(), dt.date.today()) 
         as value, to dictionary with a given name (dict_name)"""
         assert isinstance(dict_name, dict), 'dict_name id supposed to be DICT'
-        dict_name[str(self.name) + '_' + str(self.dose)] = (self.how_much_in_mg(), dt.date.today()) ## ogarnij drugi argument krotki !!!
+        dict_name[str(self.name) + '_' + str(self.dose)] = (self.how_much_in_mg(), dt.date.today())
     
     
     def _remove_medicine_from_dict(self, dict_name, key):
@@ -105,7 +105,7 @@ class Medicine:
         return None
     
     
-    def _remove_instance_from_file(self, key=None, file_name='instances.p'):
+    def remove_instance_from_file(self, key=None, file_name='instances.p'):
         """Removes instance of Medicine from dictionary in file. By default it removes itself from instances.p"""
         assert isinstance(file_name, str), 'file_name is supposed to be STR'
         if key is None:
