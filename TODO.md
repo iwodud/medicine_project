@@ -6,11 +6,17 @@
 
 1. [ ] Ogranicz zapis i odczyt pliku do dwóch funkcji
 
-2. [ ] Zmień pickle na JSON
+2. [x] Zmień pickle na JSON
 
-3. [ ] Wyrzuć z klasy tyle funkcji ile można, resztę zostaw poza nią
+3. [ ] Ogarnij usunięcie instancji z pliku (zarówno gdy w tym samym momencie ją dodajesz, jak i gdy już jest w pliku)
 
-4. [ ] Ogarnij testy
+4. [ ] Zobacz czy da się konwertować daty spowrotem ze stringa
+
+5. [ ] Usuń settery/gettery jeśli nie są potrzebne
+
+6. [ ] Wyrzuć z klasy tyle funkcji ile można, resztę zostaw poza nią
+
+7. [ ] Ogarnij testy
 
 ## Konieczne funkcje:
 

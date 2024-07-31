@@ -1,5 +1,6 @@
+# To jest mój brudnopis jak co
 from icecream import ic
-from medicine.medicine import Medicine        
+from src.medicine.medicine import Medicine
 
 
 example_dict = {
@@ -12,3 +13,7 @@ example_dict = {
 
 ic(example_dict)
 ic(example_dict)
+
+
+
+# ogólnie plik jsonowy działa tak, że jest to słownik instancji, gdzie kluczem jest nazwa leku, a wartością lista z innymi parametrami leku

@@ -1,3 +1,4 @@
+# Oliwia, jak to czytasz to nie przejmuj się tym plikiem ani plikiem setup.py
 import calendar
 import datetime
 

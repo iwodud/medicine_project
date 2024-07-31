@@ -1,6 +1,5 @@
-from icecream import ic
 import datetime as dt
-import pickle
+import json
 
 class Medicine:
     """Class Medicine contains arguments necessary to calculate time after which the medicine will run out.
@@ -16,7 +15,7 @@ class Medicine:
         __str__(self): describes instance nicely
         __repr__(self): describes instance concretely
         add_medicine_to_dict(self, dict_name): adds name of an instance (self.name) to dictionary with a given name (dict_name)
-        append_instance_to_file(self, file_name='instances.p'): appends instance of Medicine to dictionary in file (default instances.p). If file doesn't exist, creates the file
+        append_instance_to_file(self, file_name='json'): appends instance of Medicine to dictionary in file (default json). If file doesn't exist, creates the file
         add_medicine(self, amount_of_pills): not ready yet
         how_much_in_mg(self): basing on self.current_amount returns amount of the medicine in milligrams
     """
@@ -92,7 +91,7 @@ class Medicine:
         """Adds name_dose of an instance (self.name + _ + self.dose), with tuple (self.how_much_in_mg(), dt.date.today()) 
         as value, to dictionary with a given name (dict_name)"""
         assert isinstance(dict_name, dict), 'dict_name id supposed to be DICT'
-        dict_name[str(self.name) + '_' + str(self.dose)] = (self.how_much_in_mg(), dt.date.today())
+        dict_name[str(self.name) + '_' + str(self.dose)] = {'amount_of_mg': self.how_much_in_mg(), 'date': str(dt.date.today())}
     
     
     def _remove_medicine_from_dict(self, dict_name, key):
@@ -105,37 +104,37 @@ class Medicine:
         return None
     
     
-    def remove_instance_from_file(self, key=None, file_name='instances.p'):
-        """Removes instance of Medicine from dictionary in file. By default it removes itself from instances.p"""
+    def remove_instance_from_file(self, key=None, file_name='instances.json'):
+        """Removes instance of Medicine basing on name (key) from dictionary in file. By default it removes itself from instances.json"""
         assert isinstance(file_name, str), 'file_name is supposed to be STR'
         if key is None:
             key = str(self.name) + '_' + str(self.dose)
         try:
-            with open(file_name, 'rb') as file:
-                instances_dict = pickle.load(file)
+            with open(file_name, 'r') as file:
+                instances_dict = json.load(file)
         except (FileNotFoundError, EOFError):
             print(f'File {file_name} doesn\'t exist')
             return None
 
         self._remove_medicine_from_dict(instances_dict, key)
 
-        with open(file_name, 'wb') as file:
-            pickle.dump(instances_dict, file)
+        with open(file_name, 'w') as file:
+            json.dump(instances_dict, file)
 
 
-    def _append_instance_to_file(self, file_name='instances.p'):
-        """Appends instance of Medicine to dictionary in file (default instances.p). If file doesn't exist, creates the file"""
+    def _append_instance_to_file(self, file_name='instances.json'):
+        """Appends instance of Medicine to dictionary in file (default instances.json). If file doesn't exist, creates the file"""
         assert isinstance(file_name, str), 'file_name is supposed to be STR'
         try:
-            with open(file_name, 'rb') as file:
-                instances_dict = pickle.load(file)
-        except (FileNotFoundError, EOFError):
+            with open(file_name, 'r') as file:
+                instances_dict = json.load(file)
+        except (FileNotFoundError, EOFError, json.decoder.JSONDecodeError):
             instances_dict = {}
 
         self._add_medicine_to_dict(instances_dict)
 
-        with open(file_name, 'wb') as file:
-            pickle.dump(instances_dict, file)
+        with open(file_name, 'w') as file:
+            json.dump(instances_dict, file, indent=4)
 
 
     def add_medicine(self, amount_of_pills):  # funkcja jeszcze nie gotowa, trzeba ją rozbudować (i to porządnie), tego komentarza nie usuwaj
@@ -152,7 +151,7 @@ class Medicine:
         return amount_of_mg
 
 
-    def __str__(self):  # __str__() i __repr__() używam z przyzwyczajenia, tak mi wpojono. W docstringu masz co robią.
+    def __str__(self):
         return f'{self.name.title()} medicine with dose {self.dose} mg per pill (daily dose {self.daily_dose} mg) has {self.current_amount} pills left.'
 
 
