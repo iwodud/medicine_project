@@ -52,16 +52,6 @@ class Medicine:
         as value, to dictionary with a given name (dict_name)"""
         assert isinstance(dict_name, dict), 'dict_name id supposed to be DICT'
         dict_name[str(self.name) + '_' + str(self.dose)] = {'amount_of_mg': self.current_mg(), 'date': str(dt.date.today())}
-    
-    
-    def _remove_medicine_from_dict(self, dict_name, key):
-        """Removes given key (key) from given dictionary (dict_name). Returns None"""
-        assert isinstance(dict_name, dict), 'dict_name is supposed to be a DICT'
-        try:
-            del dict_name[key]
-        except KeyError:
-            print(f'Key "{key}" was not found in dictionary')
-        return None
 
 
     def _append_instance_to_file(self, file_name='instances.json'):
@@ -77,24 +67,6 @@ class Medicine:
 
         with open(file_name, 'w') as file:
             json.dump(instances_dict, file, indent=4)
-    
-    
-    def remove_instance_from_file(self, key=None, file_name='instances.json'):
-        """Removes instance of Medicine basing on name (key) from dictionary in file. By default it removes itself from instances.json"""
-        assert isinstance(file_name, str), 'file_name is supposed to be STR'
-        if key is None:
-            key = str(self.name) + '_' + str(self.dose)
-        try:
-            with open(file_name, 'r') as file:
-                instances_dict = json.load(file)
-        except (FileNotFoundError, EOFError):
-            print(f'File {file_name} doesn\'t exist')
-            return None
-
-        self._remove_medicine_from_dict(instances_dict, key)
-
-        with open(file_name, 'w') as file:
-            json.dump(instances_dict, file)
 
 
     def add_pills(self, amount_of_pills):  # funkcja jeszcze nie gotowa, trzeba ją rozbudować (i to porządnie), tego komentarza nie usuwaj
