@@ -27,3 +27,24 @@ def remove_instance_from_file(key, file_name='instances.json'):
     with open(file_name, 'w') as file:
         json.dump(instances_dict, file, indent=4)
 
+
+def add_pills(medicine_name: str, amount_of_pills: int, file_name='instances.json'):
+    """Adds more pills to chosen medicine in file (you use when you bought new package for example)"""
+    assert isinstance(amount_of_pills, int), 'amount_of_pills is supposed to be an integer'
+    assert isinstance(medicine_name, str), 'medicine_name is supposed to be a string'
+    
+    try:
+        with open(file_name, 'r') as file:
+            instances_dict = json.load(file)
+    except (FileNotFoundError, EOFError):
+        print(f'File {file_name} doesn\'t exist')
+        return None
+    
+    print(instances_dict[medicine_name])
+    instances_dict[medicine_name]['amount_of_pills'] += amount_of_pills
+    print(instances_dict[medicine_name])
+    
+    with open(file_name, 'w') as file:
+        json.dump(instances_dict, file, indent=4)
+        
+add_pills('aspiryna_100', 10)

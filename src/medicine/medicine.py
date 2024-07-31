@@ -50,10 +50,10 @@ class Medicine:
     
     
     def __add_medicine_to_dict(self, dict_name):
-        """Adds name_dose of an instance (self.name + _ + self.dose), with dictionary {'daily_dose': self.daily_dose, 'amount_of_mg': self.current_mg(),
-        'date': str(dt.date.today())} as value, to dictionary with a given name (dict_name)"""
+        """Adds name_dose of an instance (self.name + _ + self.dose), with dictionary containing it's parameters as value, to dictionary with a given name (dict_name)"""
         assert isinstance(dict_name, dict), 'dict_name is supposed to be DICT'
-        dict_name[str(self.name) + '_' + str(self.dose)] = {'daily_dose': self.daily_dose, 'amount_of_mg': self.current_mg(), 'date': str(dt.date.today())}
+        dict_name[str(self.name) + '_' + str(self.dose)] = {'daily_dose': self.daily_dose, 'amount_of_mg': self.current_mg(), 
+                                                            'amount_of_pills': self.current_amount, 'date': str(dt.date.today())}
 
 
     def __append_instance_to_file(self, file_name='instances.json'):
@@ -69,12 +69,6 @@ class Medicine:
 
         with open(file_name, 'w') as file:
             json.dump(instances_dict, file, indent=4)
-
-
-    def add_pills(self, amount_of_pills):  # funkcja jeszcze nie gotowa, trzeba ją rozbudować (i to porządnie), tego komentarza nie usuwaj
-        """Adds more pills to an instance (for example you bought package of pills and add it to the data base)"""  # nie jestem pewien czy ta funkcja będzie tutaj
-        assert isinstance(amount_of_pills, int), 'amount_of_pills is supposed to be INT'
-        self.current_amount += amount_of_pills
 
 
     def current_mg(self):

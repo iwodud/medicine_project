@@ -2,21 +2,25 @@
     "paracetamol_500": {
         "daily_dose": 1500,
         "amount_of_mg": 50000,
+        "amount_of_pills": 100,
         "date": "2024-07-31"
     },
     "paracetamol_750": {
         "daily_dose": 1500,
         "amount_of_mg": 75000,
+        "amount_of_pills": 100,
         "date": "2024-07-31"
     },
     "aspiryna_100": {
         "daily_dose": 200,
         "amount_of_mg": 5000,
+        "amount_of_pills": 50,
         "date": "2024-07-31"
     },
     "ibuprofen_600": {
         "daily_dose": 1200,
         "amount_of_mg": 24000,
+        "amount_of_pills": 40,
         "date": "2024-07-31"
     }
 }
