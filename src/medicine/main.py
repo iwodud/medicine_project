@@ -3,16 +3,6 @@ from typing import List
 from medicine import Medicine
 
 
-def export_to_file(file_name: str, items: List[Medicine]):
-    with open(file_name, 'w') as f:
-        json.dump([item.serialize() for item in items], f, indent=4)
-
-
-def import_from_file(file_name: str) -> List[Medicine]:
-    with open(file_name) as f:
-        return [Medicine(**item) for item in json.load(f)]
-
-
 def how_much_in_mg(*medicines):
     """Takes medicine's names (STR) and returns amount of the medicine in milligrams"""
     sum_of_mg = []  # to this list I add milligrams multiplied by the number of pills
@@ -33,8 +23,7 @@ aspiryna_100 = Medicine('aspiryna', 100, 200, 50)
 
 def run():
     """This function is the only function that you use if you want to check informations about medicines"""
-    # Trzeba będzie na końcu ostro rozbudować
-    pass
+    pass  # Trzeba będzie na końcu ostro rozbudować
 
 
 if __name__ == '__main__':
