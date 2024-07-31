@@ -45,15 +45,6 @@ class Medicine:
         self.current_amount = current_amount
         self._add_medicine_to_dict(self.instances)
         self._append_instance_to_file()
-
-
-    @daily_dose.setter
-    def daily_dose(self, var):
-        assert isinstance(var, (int, float)), 'daily_dose is supposed to be INT or FLOAT'
-        try:
-            self.daily_dose = var
-        except Exception as e:
-            print(e)
     
     
     def _add_medicine_to_dict(self, dict_name):
