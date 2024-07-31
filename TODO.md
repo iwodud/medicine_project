@@ -18,6 +18,10 @@
 
 7. [ ] Ogarnij testy
 
+8. [ ] Pomyśl czy nie będą potrzebne dwie klasy - klasa leku i klasa użytkownika. Wtedy w klasie użytkownika byłaby dzienna dawka leku, dzięki czemu możnaby ją zmieniać
+
+9. [ ] Dokończ funkcję "add_pills()"
+
 ## Konieczne funkcje:
 
 1. [x] Funkcja przyjmująca ilość tabletek i zwracająca ilość w miligramach
