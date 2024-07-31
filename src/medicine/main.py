@@ -34,6 +34,7 @@ aspiryna_100 = Medicine('aspiryna', 100, 200, 50)
 def run():
     """This function is the only function that you use if you want to check informations about medicines"""
     # Trzeba będzie na końcu ostro rozbudować
+    pass
 
 
 if __name__ == '__main__':

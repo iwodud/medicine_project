@@ -1,18 +1,11 @@
 # To jest mój brudnopis jak co
 from icecream import ic
-from src.medicine.medicine import Medicine
+import json
 
-
-example_dict = {
-    1: "Aspirin",
-    2: "Paracetamol",
-    3: "Ibuprofen",
-    4: "Amoxicillin",
-    5: "Ciprofloxacin"
-}
-
-ic(example_dict)
-ic(example_dict)
+with open('instances.json', encoding='UTF-8') as f:
+    data = json.load(f)
+    
+print(data['aspiryna_100'])
 
 
 

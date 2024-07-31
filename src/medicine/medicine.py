@@ -5,23 +5,25 @@ class Medicine:
     """Class Medicine contains arguments necessary to calculate time after which the medicine will run out.
 
     Args:
-        name (str): name of medicine with it`s dose per pill (for instance apap_600)
+        name (str): name of medicine with it's dose per pill (for instance apap_600)
         dose (int, float): dose of one pill (for apap_600 it's 600)
         daily_dose (int, float): dose of medicine you take per day
-        current_amount (int): amount of pills you have at the moment
+        current_amount (int, float): amount of pills you have at the moment
 
     Methods:
         __init__(self, name, dose, daily_dose, current_amount): initializes arguments
+        current_mg(self): basing on self.current_amount, the method returns amount of the medicine in milligrams.
         __str__(self): describes instance nicely
         __repr__(self): describes instance concretely
-        add_medicine_to_dict(self, dict_name): adds name of an instance (self.name) to dictionary with a given name (dict_name)
-        append_instance_to_file(self, file_name='json'): appends instance of Medicine to dictionary in file (default json). If file doesn't exist, creates the file
-        add_pills(self, amount_of_pills): not ready yet
-        current_mg(self): basing on self.current_amount returns amount of the medicine in milligrams
+        
+    Private Methods (These are NOT meant to be used outside of class. These are used once, during initialization of an instance):
+        __add_medicine_to_dict(self, dict_name): adds name of an instance (self.name) and it's parameters to dictionary with a given name (dict_name).
+        __append_instance_to_file(self, file_name='instances.json'): appends instance of Medicine to dictionary in file (default instances.json).
+            If file doesn't exist, the method creates the file.
     """
     instances = {}  # dictionary before __init__ is shared by all instances
 
-    def __init__(self, name: str, dose: int | float, daily_dose: int | float, current_amount: int):
+    def __init__(self, name: str, dose: int | float, daily_dose: int | float, current_amount: int | float):
         if not isinstance(name, str):
             raise ValueError('name is supposed to be a string')
         self.name = name
@@ -38,23 +40,23 @@ class Medicine:
             raise ValueError('Negative doses do not exist')
         self.daily_dose = daily_dose
 
-        if not isinstance(current_amount, int):
-            raise ValueError('current_amount is supposed to be an integer')
+        if not isinstance(current_amount, (int, float)):
+            raise ValueError('current_amount is supposed to be a number')
         if current_amount < 0:
             raise ValueError('It is not possible to have negative amounts of pills')
         self.current_amount = current_amount
-        self._add_medicine_to_dict(self.instances)
-        self._append_instance_to_file()
+        self.__add_medicine_to_dict(self.instances)
+        self.__append_instance_to_file()
     
     
-    def _add_medicine_to_dict(self, dict_name):
-        """Adds name_dose of an instance (self.name + _ + self.dose), with tuple (self.current_mg(), dt.date.today()) 
-        as value, to dictionary with a given name (dict_name)"""
-        assert isinstance(dict_name, dict), 'dict_name id supposed to be DICT'
+    def __add_medicine_to_dict(self, dict_name):
+        """Adds name_dose of an instance (self.name + _ + self.dose), with dictionary {'daily_dose': self.daily_dose, 'amount_of_mg': self.current_mg(),
+        'date': str(dt.date.today())} as value, to dictionary with a given name (dict_name)"""
+        assert isinstance(dict_name, dict), 'dict_name is supposed to be DICT'
         dict_name[str(self.name) + '_' + str(self.dose)] = {'daily_dose': self.daily_dose, 'amount_of_mg': self.current_mg(), 'date': str(dt.date.today())}
 
 
-    def _append_instance_to_file(self, file_name='instances.json'):
+    def __append_instance_to_file(self, file_name='instances.json'):
         """Appends instance of Medicine to dictionary in file (default instances.json). If file doesn't exist, creates the file"""
         assert isinstance(file_name, str), 'file_name is supposed to be STR'
         try:
@@ -63,7 +65,7 @@ class Medicine:
         except (FileNotFoundError, EOFError):
             instances_dict = {}
 
-        self._add_medicine_to_dict(instances_dict)
+        self.__add_medicine_to_dict(instances_dict)
 
         with open(file_name, 'w') as file:
             json.dump(instances_dict, file, indent=4)
@@ -76,7 +78,7 @@ class Medicine:
 
 
     def current_mg(self):
-        """Basing on self.current_amount returns amount of the medicine in milligrams"""
+        """Basing on self.current_amount returns amount of the medicine in milligrams at the moment of creating the medicine"""
         amount_of_pills = self.current_amount
         mg_per_pill = self.dose
         amount_of_mg = amount_of_pills * mg_per_pill
