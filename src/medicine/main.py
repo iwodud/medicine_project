@@ -25,21 +25,16 @@ def how_much_in_mg(*medicines):
     return sum(sum_of_mg)
 
 
-vetira_500 = Medicine('vetira', 500, 1500, 10)
-vetira_750 = Medicine('vetira', 750, 1500, 10)
-neurotop_600 = Medicine('neurotop', 600, 1200, 40)
-lacosamide_100 = Medicine('lacosamide', 100, 200, 50)
+paracetamol_500 = Medicine('paracetamol', 500, 1500, 10)
+paracetamol_750 = Medicine('paracetamol', 750, 1500, 10)
+ibuprofen_600 = Medicine('ibuprofen', 600, 1200, 40)
+aspiryna_100 = Medicine('aspiryna', 100, 200, 50)
 
 
 def run():
     """This function is the only function that you use if you want to check informations about medicines"""
     # Trzeba będzie na końcu ostro rozbudować
-    data = import_from_file('instances.json')
-    neurotop_600.remove_instance_from_file()
-    print(import_from_file('instances.json'))
-
-    print(data['lacosamide_100'][1])
 
 
-# if __name__ == '__main__':
-#     run()
+if __name__ == '__main__':
+    run()

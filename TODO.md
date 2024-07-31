@@ -8,11 +8,11 @@
 
 2. [x] Zmień pickle na JSON
 
-3. [ ] Ogarnij usunięcie instancji z pliku (zarówno gdy w tym samym momencie ją dodajesz, jak i gdy już jest w pliku)
+3. [x] Ogarnij usunięcie instancji z pliku (zarówno gdy w tym samym momencie ją dodajesz, jak i gdy już jest w pliku)
 
 4. [ ] Zobacz czy da się konwertować daty spowrotem ze stringa
 
-5. [ ] Usuń settery/gettery jeśli nie są potrzebne
+5. [x] Usuń settery/gettery jeśli nie są potrzebne
 
 6. [ ] Wyrzuć z klasy tyle funkcji ile można, resztę zostaw poza nią
 

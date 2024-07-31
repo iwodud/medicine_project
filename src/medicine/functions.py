@@ -27,4 +27,4 @@ def remove_instance_from_file(key, file_name='instances.json'):
     with open(file_name, 'w') as file:
         json.dump(instances_dict, file, indent=4)
         
-remove_instance_from_file('neurotop_600')
+remove_instance_from_file('ibuprofen_600')

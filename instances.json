@@ -1,13 +1,13 @@
 {
-    "vetira_500": {
+    "paracetamol_500": {
         "amount_of_mg": 5000,
         "date": "2024-07-31"
     },
-    "vetira_750": {
+    "paracetamol_750": {
         "amount_of_mg": 7500,
         "date": "2024-07-31"
     },
-    "lacosamide_100": {
+    "aspiryna_100": {
         "amount_of_mg": 5000,
         "date": "2024-07-31"
     }
