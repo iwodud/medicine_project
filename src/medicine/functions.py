@@ -1,10 +1,11 @@
 """This file contains functions used outside of classes"""
+
 import json
 from typing import List
 from medicine import Medicine
 
 
-def import_from_file(file_name='instances.json'):
+def import_from_file(file_name='data.json'):
     if not isinstance(file_name, str):
         raise TypeError('file_name must be a string')
     try:
@@ -18,7 +19,7 @@ def import_from_file(file_name='instances.json'):
     return {}
 
 
-def export_to_file(data, file_name='instances.json'):
+def export_to_file(data, file_name='data.json'):
     if not isinstance(file_name, str):
         raise TypeError('file_name must be a string')
     if not isinstance(data, dict):
@@ -28,8 +29,8 @@ def export_to_file(data, file_name='instances.json'):
             print(f'data successfully updated in "{file_name}"')
 
 
-def remove_instance_from_file(key, file_name='instances.json'):
-    """Removes instance of Medicine basing on name (key) from dictionary in file. By default it removes itself from instances.json"""
+def remove_instance_from_file(key, file_name='data.json'):
+    """Removes instance of Medicine basing on name (key) from dictionary in file. By default it removes itself from data.json"""
     if not isinstance(file_name, str):
         raise TypeError('file_name must be a string')
     
@@ -48,7 +49,7 @@ def remove_instance_from_file(key, file_name='instances.json'):
 # remove_instance_from_file('ibuprofen_600')
 
 
-def add_pills(medicine_name: str, amount_of_pills: int, file_name='instances.json'):
+def add_pills(medicine_name: str, amount_of_pills: int, file_name='data.json'):
     """Adds more pills to chosen medicine in file (you use when you bought new package for example)"""
     if not isinstance(medicine_name, str):
         raise TypeError('medicine_name must be a string')
@@ -61,4 +62,4 @@ def add_pills(medicine_name: str, amount_of_pills: int, file_name='instances.jso
     instances_dict[medicine_name]['amount_of_pills'] += amount_of_pills
     export_to_file(instances_dict)
         
-add_pills('aspiryna_100', 20)
+# add_pills('aspiryna_100', 20)

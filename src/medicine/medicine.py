@@ -18,7 +18,7 @@ class Medicine:
         
     Private Methods (These are NOT meant to be used outside of class. These are used once, during initialization of an instance):
         __add_medicine_to_dict(self, dict_name): adds name of an instance (self.name) and it's parameters to dictionary with a given name (dict_name).
-        __append_instance_to_file(self, file_name='instances.json'): appends instance of Medicine to dictionary in file (default instances.json).
+        __append_instance_to_file(self, file_name='data.json'): appends instance of Medicine to dictionary in file (default data.json).
             If file doesn't exist, the method creates the file.
     """
     instances = {}  # dictionary before __init__ is shared by all instances
@@ -56,8 +56,8 @@ class Medicine:
                                                             'amount_of_pills': self.current_amount, 'date': str(dt.date.today())}
 
 
-    def __append_instance_to_file(self, file_name='instances.json'):
-        """Appends instance of Medicine to dictionary in file (default instances.json). If file doesn't exist, creates the file"""
+    def __append_instance_to_file(self, file_name='data.json'):
+        """Appends instance of Medicine to dictionary in file (default data.json). If file doesn't exist, creates the file"""
         assert isinstance(file_name, str), 'file_name is supposed to be STR'
         try:
             with open(file_name, 'r') as file:
