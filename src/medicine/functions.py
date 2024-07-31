@@ -26,14 +26,4 @@ def remove_instance_from_file(key, file_name='instances.json'):
 
     with open(file_name, 'w') as file:
         json.dump(instances_dict, file, indent=4)
-        
-def how_much_in_mg(*medicines: Medicine):
-    """Takes medicine's names (STR) and returns amount of the medicine in milligrams"""
-    sum_of_mg = []  # to this list I add milligrams multiplied by the number of pills
-    for medicine in medicines:
-        assert isinstance(medicine, Medicine), 'medicines is supposed to be medicine.Medicine'
-        amount_of_pills = medicine.current_amount
-        mg_per_pill = medicine.dose
-        amount_of_mg = amount_of_pills * mg_per_pill
-        sum_of_mg.append(amount_of_mg)
-    return sum(sum_of_mg)
+

@@ -1,12 +1,12 @@
 {
     "paracetamol_500": {
         "daily_dose": 1500,
-        "amount_of_mg": 5000,
+        "amount_of_mg": 50000,
         "date": "2024-07-31"
     },
     "paracetamol_750": {
         "daily_dose": 1500,
-        "amount_of_mg": 7500,
+        "amount_of_mg": 75000,
         "date": "2024-07-31"
     },
     "aspiryna_100": {

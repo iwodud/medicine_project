@@ -6,8 +6,8 @@ class Medicine:
 
     Args:
         name (str): name of medicine with it`s dose per pill (for instance apap_600)
-        dose (int): dose of one pill (for apap_600 it's 600)
-        daily_dose ((int, float)): dose of medicine you take per day
+        dose (int, float): dose of one pill (for apap_600 it's 600)
+        daily_dose (int, float): dose of medicine you take per day
         current_amount (int): amount of pills you have at the moment
 
     Methods:

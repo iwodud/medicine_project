@@ -4,23 +4,25 @@
 
 ## Poprawki na teraz:
 
-1. [ ] Ogranicz zapis i odczyt pliku do dwóch funkcji
+1.  [ ] Ogranicz zapis i odczyt pliku do dwóch funkcji
 
-2. [x] Zmień pickle na JSON
+2.  [x] Zmień pickle na JSON
 
-3. [x] Ogarnij usunięcie instancji z pliku (zarówno gdy w tym samym momencie ją dodajesz, jak i gdy już jest w pliku)
+3.  [x] Ogarnij usunięcie instancji z pliku (zarówno gdy w tym samym momencie ją dodajesz, jak i gdy już jest w pliku)
 
-4. [ ] Zobacz czy da się konwertować daty spowrotem ze stringa
+4.  [ ] Zobacz czy da się konwertować daty spowrotem ze stringa
 
-5. [x] Usuń settery/gettery jeśli nie są potrzebne
+5.  [x] Usuń settery/gettery jeśli nie są potrzebne
 
-6. [ ] Wyrzuć z klasy tyle funkcji ile można, resztę zostaw poza nią
+6.  [ ] Wyrzuć z klasy tyle funkcji ile można, resztę zostaw poza nią
 
-7. [ ] Ogarnij testy
+7.  [ ] Ogarnij testy
 
-8. [ ] Pomyśl czy nie będą potrzebne dwie klasy - klasa leku i klasa użytkownika. Wtedy w klasie użytkownika byłaby dzienna dawka leku, dzięki czemu możnaby ją zmieniać
+8.  [ ] Pomyśl czy nie będą potrzebne dwie klasy - klasa leku i klasa użytkownika. Wtedy w klasie użytkownika byłaby dzienna dawka leku, dzięki czemu możnaby ją zmieniać
 
-9. [ ] Dokończ funkcję "add_pills()"
+9.  [ ] Dokończ funkcję "add_pills()"
+
+10. [ ] Ogarnij docstringa
 
 ## Konieczne funkcje:
 
