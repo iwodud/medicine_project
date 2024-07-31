@@ -51,7 +51,7 @@ class Medicine:
         """Adds name_dose of an instance (self.name + _ + self.dose), with tuple (self.current_mg(), dt.date.today()) 
         as value, to dictionary with a given name (dict_name)"""
         assert isinstance(dict_name, dict), 'dict_name id supposed to be DICT'
-        dict_name[str(self.name) + '_' + str(self.dose)] = {'amount_of_mg': self.current_mg(), 'date': str(dt.date.today())}
+        dict_name[str(self.name) + '_' + str(self.dose)] = {'daily_dose': self.daily_dose, 'amount_of_mg': self.current_mg(), 'date': str(dt.date.today())}
 
 
     def _append_instance_to_file(self, file_name='instances.json'):
@@ -89,15 +89,3 @@ class Medicine:
 
     def __repr__(self):
         return f'Medicine({self.name}, {self.dose}, {self.daily_dose}, {self.current_amount})'
-
-
-def how_much_in_mg(*medicines: Medicine):
-    """Takes medicine's names (STR) and returns amount of the medicine in milligrams"""
-    sum_of_mg = []  # to this list I add milligrams multiplied by the number of pills
-    for medicine in medicines:
-        assert isinstance(medicine, Medicine), 'medicines is supposed to be medicine.Medicine'
-        amount_of_pills = medicine.current_amount
-        mg_per_pill = medicine.dose
-        amount_of_mg = amount_of_pills * mg_per_pill
-        sum_of_mg.append(amount_of_mg)
-    return sum(sum_of_mg)

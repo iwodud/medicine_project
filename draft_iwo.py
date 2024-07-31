@@ -16,4 +16,4 @@ ic(example_dict)
 
 
 
-# ogólnie plik jsonowy działa tak, że jest to słownik instancji, gdzie kluczem jest nazwa leku, a wartością lista z innymi parametrami leku
+# ogólnie ten plik jsonowy działa tak, że jest to słownik instancji, gdzie kluczem jest nazwa leku, a wartością słownik z innymi parametrami leku
