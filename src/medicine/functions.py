@@ -1,7 +1,7 @@
 """This file contains functions used outside of classes"""
 
 import json
-from typing import List
+import datetime as dt
 from medicine import Medicine
 
 
@@ -30,7 +30,7 @@ def export_to_file(data, file_name='data.json'):
 
 
 def remove_instance_from_file(key, file_name='data.json'):
-    """Removes instance of Medicine basing on name (key) from dictionary in file. By default it removes itself from data.json"""
+    """Removes chosen medicine basing on name (key) from dictionary in file. By default it removes itself from data.json"""
     if not isinstance(file_name, str):
         raise TypeError('file_name must be a string')
     
@@ -63,3 +63,14 @@ def add_pills(medicine_name: str, amount_of_pills: int, file_name='data.json'):
     export_to_file(instances_dict)
         
 # add_pills('aspiryna_100', 20)
+
+
+def to_date_type(medicine: str) -> dt.date:
+    """changes string containing date (year-month-day format) to datetime.date type. doesn't change type permantently."""
+    if not isinstance(medicine, str):
+        raise TypeError('medicine must be a string')
+    try:
+        date = dt.datetime.strptime(medicine, "%Y-%m-%d").date()
+        return date
+    except ValueError:
+        raise ValueError("The date string must be in 'YYYY-MM-DD' format and represent a valid date.")

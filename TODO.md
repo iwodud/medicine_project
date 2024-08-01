@@ -10,7 +10,7 @@
 
 3.  [x] Ogarnij usunięcie instancji z pliku (zarówno gdy w tym samym momencie ją dodajesz, jak i gdy już jest w pliku)
 
-4.  [ ] Zobacz czy da się konwertować daty spowrotem ze stringa
+4.  [x] Zobacz czy da się konwertować daty spowrotem ze stringa
 
 5.  [x] Usuń settery/gettery jeśli nie są potrzebne
 

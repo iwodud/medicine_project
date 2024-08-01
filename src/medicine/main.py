@@ -1,5 +1,3 @@
-import json
-from typing import List
 from medicine import Medicine
 
 
