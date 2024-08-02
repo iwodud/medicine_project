@@ -45,8 +45,6 @@ def remove_instance_from_file(key, file_name='data.json'):
     instances_dict = import_from_file()
     remove_medicine_from_dict(instances_dict, key)
     export_to_file(instances_dict)
-        
-# remove_instance_from_file('ibuprofen_600')
 
 
 def add_pills(medicine_name: str, amount_of_pills: int, file_name='data.json'):
@@ -61,8 +59,6 @@ def add_pills(medicine_name: str, amount_of_pills: int, file_name='data.json'):
     instances_dict = import_from_file()
     instances_dict[medicine_name]['amount_of_pills'] += amount_of_pills
     export_to_file(instances_dict)
-        
-# add_pills('aspiryna_100', 20)
 
 
 def to_date_type(medicine: str) -> dt.date:
@@ -74,3 +70,12 @@ def to_date_type(medicine: str) -> dt.date:
         return date
     except ValueError:
         raise ValueError("The date string must be in 'YYYY-MM-DD' format and represent a valid date.")
+
+
+def isolate_name(string: str) -> str:
+    if not isinstance(string, str):
+        raise TypeError("'string' must be a string")
+    name = string.split('_')[0]
+    return name 
+
+
