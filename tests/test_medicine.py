@@ -1,5 +1,5 @@
-import pytest
-from src.medicine.medicine import Medicine
+# import pytest
+from medicine.medicine import Medicine
 
 
 class TestMedicine:
