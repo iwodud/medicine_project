@@ -85,8 +85,6 @@ def isolate_name(string: str) -> str:
     name = string.split('_')[0]
     return name 
 
-# rzeczy potrzebne do obliczenia ilości pozostałych dni, ilości pozostałych tabletek, daty kiedy tabletki się wyczerpią: 
-# data utworzenia instancji leku, ilość mg leku w tablietce, pozostałą ilość mg leku
 
 def get_list_of_wanted_medicines(medicine_name: str, file_name='data.json') -> list[str]:
     """returns list of medicine_names from data base matching given name (medicine_name). if you type in 'aspiryna' or 'aspiryna_100_ you get ['aspiryna_100'].
@@ -120,3 +118,12 @@ def import_selected_medicine(medicine_name: str, file_name='data.json') -> list[
         list_of_medicines.append(database[key])
     
     return(list_of_medicines)
+
+
+def how_many_days_passed(given_date: str) -> int:
+    if not isinstance(given_date, str):
+        raise TypeError('given_date must be a string')
+
+    current_date = dt.datetime.now().date()
+    days_passed = current_date - to_date_type(given_date)
+    return days_passed.days

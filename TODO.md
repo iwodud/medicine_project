@@ -13,9 +13,9 @@
 
 ## Konieczne funkcje:
 
-1. [ ] Funkcja przyjmująca dwie tabletki o różnych dawkach i zamieniająca na jedną
+1. [x] Funkcja przyjmująca dwie tabletki o różnych dawkach i zamieniająca na jedną
 
-3. [ ] Funkcja obliczająca ile dni minęło od dodania leku
+3. [x] Funkcja obliczająca ile dni minęło od dodania leku
 
 4. [ ] Funkcja przeliczająca ilość dni na ilość leku, który został zużyty
 

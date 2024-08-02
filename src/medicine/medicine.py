@@ -52,8 +52,9 @@ class Medicine:
     def __add_medicine_to_dict(self, dict_name):
         """Adds name_dose of an instance (self.name + _ + self.dose), with dictionary containing it's parameters as value, to dictionary with a given name (dict_name)"""
         assert isinstance(dict_name, dict), 'dict_name is supposed to be DICT'
-        dict_name[str(self.name) + '_' + str(self.dose)] = {'daily_dose': self.daily_dose, 'amount_of_mg': self.initial_mg(), 
-                                            'amount_of_pills': self.initial_amount, 'date': str(dt.date.today())}
+        dict_name[str(self.name) + '_' + str(self.dose)] = {'daily_dose': self.daily_dose,'mg_per_pill': self.dose,
+                                                            'amount_of_mg': self.initial_mg(), 'amount_of_pills': self.initial_amount, 
+                                                            'date': str(dt.date.today())}
 
 
     def __append_instance_to_file(self, file_name='data.json'):
