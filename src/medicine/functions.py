@@ -6,6 +6,7 @@ from medicine import Medicine
 
 
 def import_from_file(file_name='data.json'):
+    """imports whole file"""
     if not isinstance(file_name, str):
         raise TypeError('file_name must be a string')
     try:
@@ -78,4 +79,22 @@ def isolate_name(string: str) -> str:
     name = string.split('_')[0]
     return name 
 
+# rzeczy potrzebne do obliczenia ilości pozostałych dni, ilości pozostałych tabletek, daty kiedy tabletki się wyczerpią: 
+# data utworzenia instancji leku, ilość mg leku w tablietce, pozostałą ilość mg leku
 
+def give_list_of_wanted_medicines(medicine_name: str, file='data.json') -> list[str]:
+    """returns list of medicine_names from data base matching given name (medicine_name). if you type in 'aspiryna' or 'aspiryna_100_ you get ['aspiryna_100'].
+    if you type in 'paracetamol' you get ['paracetamol_500', 'paracetamol_750'], but if you type in 'paracetamol_500', you get ['paracetamol_500']."""
+    if not isinstance(medicine_name, str):
+        raise TypeError("'medicine_name' must be a string")
+    list_of_results = []
+    data_base = import_from_file('data.json')
+    for medicine in data_base:
+        if isolate_name(medicine) == medicine_name or medicine == medicine_name:
+            list_of_results.append(medicine)
+    if list_of_results == []:
+        raise KeyError(f"{medicine_name} wasn't found in data base")
+    print(list_of_results)
+    return list_of_results
+
+give_list_of_wanted_medicines('d')
