@@ -127,3 +127,12 @@ def how_many_days_passed(given_date: str) -> int:
     current_date = dt.datetime.now().date()
     days_passed = current_date - to_date_type(given_date)
     return days_passed.days
+
+
+def days_to_amount_of_medicine(number_of_days: int, daily_dose_in_mg: int):
+    if not (isinstance(number_of_days, int) and isinstance(daily_dose_in_mg, int)):
+        raise TypeError('arguments must be integers')
+    if number_of_days <= 0 or daily_dose_in_mg <= 0:
+        raise ValueError('arguments must be greater than zero')
+    
+    return number_of_days * daily_dose_in_mg
