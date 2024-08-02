@@ -30,3 +30,5 @@
 ## Inne:
 
 1. [ ] Pomyśl jakie funkcjonalności powinien mieć użytkownik (stworzenie leku, dodanie leku, sprawdzenie danych, etc.)
+
+2. [ ] Pamiętaj o dodaniu zapisywnaia historii zmian
