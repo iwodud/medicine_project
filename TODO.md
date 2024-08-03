@@ -17,7 +17,7 @@
 
 3. [x] Funkcja obliczająca ile dni minęło od dodania leku
 
-4. [ ] Funkcja przeliczająca ilość dni na ilość leku, który został zużyty
+4. [x] Funkcja przeliczająca ilość dni na ilość leku, który został zużyty
 
 5. [ ] Funkcja obliczająca ile dni zostało do wyczerpania leku na podstawie danych z pliku
 

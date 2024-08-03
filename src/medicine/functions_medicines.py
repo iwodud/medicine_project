@@ -42,12 +42,3 @@ def get_selected_medicine(medicine_name: str, file_name='data.json') -> list[dic
         list_of_medicines.append(database[key])
     
     return(list_of_medicines)
-
-
-def days_to_amount_of_medicine(number_of_days: int, daily_dose_in_mg: int):  # pomyśl nad lepszą nazwą
-    if not (isinstance(number_of_days, int) and isinstance(daily_dose_in_mg, int)):
-        raise TypeError('arguments must be integers')
-    if number_of_days <= 0 or daily_dose_in_mg <= 0:
-        raise ValueError('arguments must be greater than zero')
-    
-    return number_of_days * daily_dose_in_mg
