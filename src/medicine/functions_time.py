@@ -2,8 +2,9 @@ import datetime as dt
 
 from functions_medicines import get_selected_medicine
 
+
 def to_date_type(medicine: str) -> dt.date:
-    """changes string containing date (year-month-day format) to datetime.date type. doesn't change type permantently."""
+    """Changes string containing date (year-month-day format) to datetime.date type. Doesn't change type permanently."""
     if not isinstance(medicine, str):
         raise TypeError('medicine must be a string')
     try:
@@ -33,7 +34,7 @@ def days_to_amount_of_medicine(number_of_days: int, daily_dose_in_mg: int):  # p
     return needed_mg_of_medicine
 
 
-def how_much_days_is_enough(daily_dose: int, amount_of_mg: int) -> int:  # na ile dni starczy leku
+def how_much_days_is_enough(daily_dose: int, amount_of_mg: int):  # na ile dni starczy leku
     """Returns number of days for which the medicine is enough / after which the medicine will run out"""
     if not (isinstance(daily_dose, int) and isinstance(amount_of_mg, int)):
         raise TypeError('daily_dose and amount_of_mg must be integers')
@@ -66,6 +67,4 @@ def when_will_medicine_run_out(medicine_name: str, file_name='data.json') -> tup
     delta = dt.timedelta(days=number_of_days)
     when_will_run_out = starting_day_date + delta
     
-    return (when_will_run_out, number_of_days)
-
-print(when_will_medicine_run_out('ibuprofe'))
+    return when_will_run_out, number_of_days

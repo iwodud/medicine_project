@@ -25,5 +25,5 @@ def export_to_file(data, file_name='data.json'):
         raise ValueError('data must be a dictionary')
     
     with open(file_name, 'w', encoding='UTF-8') as file:
-            json.dump(data, file, indent=4, ensure_ascii=False)
-            print(f'data successfully updated in "{file_name}"')
+        json.dump(data, file, indent=4, ensure_ascii=False)
+        print(f'data successfully updated in "{file_name}"')

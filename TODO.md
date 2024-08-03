@@ -7,6 +7,8 @@
 
 1. [ ] Ogarnij testy
 
+2. [ ] Ogarnij buga data successfully updated in "data.json"
+
 ## Poprawki na potem:
 
 1. [ ] Pomyśl jak zmieniać dzienną dawkę leku, którą przyjmuje pacjent
