@@ -35,12 +35,20 @@ def remove_medicine_from_file(key: str, file_name='data.json'):
     export_to_file(instances_dict)
 
 
-def check_information(medicine):
+def check_single_information(medicine):
     data = when_will_medicine_run_out(medicine)
-    print(f"The '{medicine}' medicine is going to run out in {data[1]} days on {data[0]}")
+    print(f"""{medicine}
+days left: {data[1]} 
+finish date: {data[0]}
+""")
 
 
-check_information('paracetamol')
+def check_information():
+    data = import_from_file()
+    for medicine in data:
+        check_single_information(medicine)
+
+check_information()
 
 def change_daily_dose():
     pass

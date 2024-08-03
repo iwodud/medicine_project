@@ -56,13 +56,15 @@ def when_will_medicine_run_out(medicine_name: str, file_name='data.json') -> tup
     
     medicine_data = get_selected_medicine(medicine_name, file_name)
     
-    starting_day_str = medicine_data[0]['initialization_date']
-    starting_day_date = to_date_type(starting_day_str)
-    
-    daily_dose = medicine_data[0]['daily_dose']
-    
-    amount_of_mg = medicine_data[0]['amount_of_mg']
-    number_of_days = how_much_days_is_enough(daily_dose, amount_of_mg)
+    number_of_days = 0
+    for size_of_pill in medicine_data:
+        starting_day_str = size_of_pill['initialization_date']
+        starting_day_date = to_date_type(starting_day_str)
+        
+        daily_dose = size_of_pill['daily_dose']
+        
+        amount_of_mg = size_of_pill['amount_of_mg']
+        number_of_days += how_much_days_is_enough(daily_dose, amount_of_mg)
     
     delta = dt.timedelta(days=number_of_days)
     when_will_run_out = starting_day_date + delta
