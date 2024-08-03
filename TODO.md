@@ -25,12 +25,24 @@
 
 6. [ ] Funkcja obliczająca obecną ilość leku
 
-7. [ ] Funkcja obliczająca na ile dni zostało jeszcze leku na podstawie ilości dni, które jeszcze pozostały do wyczerpania
+7. [x] Funkcja obliczająca na ile dni zostało jeszcze leku na podstawie ilości dni, które jeszcze pozostały do wyczerpania
 
 8. [ ] Funkcja `run()`
 
+## Użytkownik:
+
+1. [ ] stworzenie leku
+
+2. [ ] dodanie tabletek
+
+3. [ ] zmiana dziennej dawki
+
+4. [x] usunięcie leku
+
+5. [x] sprawdzenie informacji
+
 ## Inne:
 
-1. [ ] Pomyśl jakie funkcjonalności powinien mieć użytkownik (stworzenie leku, dodanie leku, sprawdzenie danych, etc.)
+1. [x] Pomyśl jakie funkcjonalności powinien mieć użytkownik (stworzenie leku, dodanie leku, sprawdzenie danych, etc.)
 
 2. [ ] Pamiętaj o dodaniu zapisywnaia historii zmian

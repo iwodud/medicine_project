@@ -21,18 +21,21 @@ def remove_medicine_from_dict(dict_name, medicine_name):
         assert isinstance(dict_name, dict), 'dict_name is supposed to be a dictionary'
         try:
             del dict_name[medicine_name]
+            return True
         except KeyError:
             print(f'Key "{medicine_name}" was not found in dictionary')
+            return False
 
 
 def remove_medicine_from_file(key: str, file_name='data.json'):
-    """Removes chosen medicine basing on name (key) from dictionary in file. By default, it removes itself from data.json"""
+    """Removes chosen medicine basing on name (key) from dictionary in file. By default, it removes medicine from data.json"""
     if not isinstance(file_name, str):
         raise TypeError('file_name must be a string')
     
     instances_dict = import_from_file()
-    remove_medicine_from_dict(instances_dict, key)
-    export_to_file(instances_dict)
+    successfull = remove_medicine_from_dict(instances_dict, key)
+    if successfull:
+        export_to_file(instances_dict)
 
 
 def check_single_information(medicine):
@@ -48,7 +51,6 @@ def check_information():
     for medicine in data:
         check_single_information(medicine)
 
-check_information()
 
 def change_daily_dose():
     pass
