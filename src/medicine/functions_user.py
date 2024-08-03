@@ -1,4 +1,5 @@
 from functions_files import import_from_file, export_to_file
+from functions_time import when_will_medicine_run_out
 
 
 def add_pills(medicine_name: str, amount_of_pills: int, file_name='data.json'):
@@ -34,9 +35,16 @@ def remove_medicine_from_file(key: str, file_name='data.json'):
     export_to_file(instances_dict)
 
 
+def check_information(medicine):
+    data = when_will_medicine_run_out(medicine)
+    print(f"The '{medicine}' medicine is going to run out in {data[1]} days on {data[0]}")
+
+
+check_information('paracetamol')
+
 def change_daily_dose():
     pass
 
 
-def show_medicine():
+def create_medicine():
     pass

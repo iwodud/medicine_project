@@ -12,5 +12,19 @@
         "amount_of_mg": 24000,
         "amount_of_pills": 40,
         "initialization_date": "2024-08-03"
+    },
+    "paracetamol_500": {
+        "daily_dose": 1500,
+        "mg_per_pill": 500,
+        "amount_of_mg": 50000,
+        "amount_of_pills": 100,
+        "initialization_date": "2024-08-03"
+    },
+    "paracetamol_750": {
+        "daily_dose": 1500,
+        "mg_per_pill": 750,
+        "amount_of_mg": 75000,
+        "amount_of_pills": 100,
+        "initialization_date": "2024-08-03"
     }
 }

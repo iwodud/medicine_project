@@ -21,7 +21,7 @@
 
 4. [x] Funkcja przeliczająca ilość dni na ilość leku, który został zużyty
 
-5. [ ] Funkcja obliczająca ile dni zostało do wyczerpania leku na podstawie danych z pliku
+5. [x] Funkcja obliczająca ile dni zostało do wyczerpania leku na podstawie danych z pliku
 
 6. [ ] Funkcja obliczająca obecną ilość leku
 

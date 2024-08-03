@@ -48,7 +48,7 @@ def how_much_days_is_enough(daily_dose: int, amount_of_mg: int):  # na ile dni s
         return 'daily dose can\'t be equal to zero'
 
 
-def when_will_medicine_run_out(medicine_name: str, file_name='data.json') -> tuple[dt.date, int]:
+def when_will_medicine_run_out(medicine_name: str, file_name='data.json') -> tuple[dt.date, int]:  # nie działa dla leków o większej ilości tabletek
     """basing on given name, function returns date when the medicine will run out and how many days are left 
     in a tuple (date, number of days for medicine to run out)."""
     if not isinstance(medicine_name, str):
