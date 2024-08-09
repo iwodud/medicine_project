@@ -13,6 +13,7 @@ def add_pills(medicine_name: str, amount_of_pills: int, file_name='data.json'):
     
     instances_dict = import_from_file()
     instances_dict[medicine_name]['amount_of_pills'] += amount_of_pills
+    instances_dict[medicine_name]['amount_of_mg'] += amount_of_pills * instances_dict[medicine_name]['mg_per_pill']
     export_to_file(instances_dict)
 
 
@@ -58,3 +59,7 @@ def change_daily_dose():
 
 def create_medicine():
     pass
+
+
+add_pills('paracetamol_750', 50)
+check_information()

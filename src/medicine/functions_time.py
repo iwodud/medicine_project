@@ -23,8 +23,8 @@ def how_many_days_passed(given_date: str) -> int:
     return days_passed.days
 
 
-def days_to_amount_of_medicine(number_of_days: int, daily_dose_in_mg: int):  # pomyśl nad lepszą nazwą
-    """returns how much mg of medicine you need for given number of days"""  # ile leku potrzebujesz na X dni
+def days_to_amount_of_medicine(number_of_days: int, daily_dose_in_mg: int):
+    """returns how much mg of medicine you need for given number of days""" 
     if not (isinstance(number_of_days, int) and isinstance(daily_dose_in_mg, int)):
         raise TypeError('arguments must be integers')
     if number_of_days <= 0 or daily_dose_in_mg <= 0:
@@ -34,7 +34,7 @@ def days_to_amount_of_medicine(number_of_days: int, daily_dose_in_mg: int):  # p
     return needed_mg_of_medicine
 
 
-def how_much_days_is_enough(daily_dose: int, amount_of_mg: int):  # na ile dni starczy leku
+def how_much_days_is_enough(daily_dose: int, amount_of_mg: int):
     """Returns number of days for which the medicine is enough / after which the medicine will run out"""
     if not (isinstance(daily_dose, int) and isinstance(amount_of_mg, int)):
         raise TypeError('daily_dose and amount_of_mg must be integers')

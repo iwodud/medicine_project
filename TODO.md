@@ -7,11 +7,13 @@
 
 1. [ ] Ogarnij testy
 
-2. [ ] Ogarnij buga data successfully updated in "data.json"
+2. [x] Ogarnij buga data successfully updated in "data.json"
+
+3. [x] add_pills() nie aktualizuje ilości mg leku tylko ilość tabletek (bug)
 
 ## Poprawki na potem:
 
-1. [ ] Pomyśl jak zmieniać dzienną dawkę leku, którą przyjmuje pacjent
+1. [x] Pomyśl jak zmieniać dzienną dawkę leku, którą przyjmuje pacjent
 
 ## Konieczne funkcje:
 
@@ -23,7 +25,7 @@
 
 5. [x] Funkcja obliczająca ile dni zostało do wyczerpania leku na podstawie danych z pliku
 
-6. [ ] Funkcja obliczająca obecną ilość leku
+6. [ ] Funkcja obliczająca obecną ilość leku (tabletek)
 
 7. [x] Funkcja obliczająca na ile dni zostało jeszcze leku na podstawie ilości dni, które jeszcze pozostały do wyczerpania
 
@@ -33,7 +35,7 @@
 
 1. [ ] stworzenie leku
 
-2. [ ] dodanie tabletek
+2. [x] dodanie tabletek
 
 3. [ ] zmiana dziennej dawki
 
