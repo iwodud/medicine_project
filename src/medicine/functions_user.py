@@ -53,13 +53,21 @@ def check_information():
         check_single_information(medicine)
 
 
-def change_daily_dose():
-    pass
+def change_daily_dose(medicine_name: str, new_daily_dose: int):
+    """Changes daily dose of chosen medicine. You have to change daily dose of every medicine separately"""
+    if not isinstance(medicine_name, str):
+        raise TypeError('medicine_name must be a string')
+    if not isinstance(new_daily_dose, int):
+        raise TypeError('new_daily_dose must be an integer')
+    
+    try:
+        instances_dict = import_from_file()
+        instances_dict[medicine_name]['daily_dose'] = new_daily_dose
+        export_to_file(instances_dict)
+    except KeyError:
+        print('You have to change daily dose of every medicine separately.\n')
 
 
 def create_medicine():
     pass
 
-
-add_pills('paracetamol_750', 50)
-check_information()

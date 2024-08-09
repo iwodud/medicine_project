@@ -37,7 +37,7 @@
 
 2. [x] dodanie tabletek
 
-3. [ ] zmiana dziennej dawki
+3. [x] zmiana dziennej dawki
 
 4. [x] usunięcie leku
 
@@ -48,3 +48,5 @@
 1. [x] Pomyśl jakie funkcjonalności powinien mieć użytkownik (stworzenie leku, dodanie leku, sprawdzenie danych, etc.)
 
 2. [ ] Pamiętaj o dodaniu zapisywnaia historii zmian
+
+3. [ ] Pomyśl czy nie połączyć leków o tych samych dawkach przy zmianie dziennej dawki (change_daily_dose())
