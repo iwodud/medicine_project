@@ -41,10 +41,10 @@ def remove_medicine_from_file(key: str, file_name='data.json'):
 
 def check_single_information(medicine):
     data = when_will_medicine_run_out(medicine)
-    print(f"""{medicine}
+    print(f"""
+{medicine}
 days left: {data[1]} 
-finish date: {data[0]}
-""")
+finish date: {data[0]}""")
 
 
 def check_information():
@@ -71,3 +71,47 @@ def change_daily_dose(medicine_name: str, new_daily_dose: int):
 def create_medicine():
     pass
 
+def run():
+    while True:
+        choice = int(input('''Chose your action:
+    1. Check information about all medicines
+    2. Check information about single medicine
+    3. Add pills to chosen medicine
+    4. Change daily dose of selected medicine
+    5. Create medicine
+    6. Remove medicine
+    
+    Your action: '''))
+    
+        if choice == 1:
+            check_information()
+        elif choice == 2:
+            medicine = input('Give name of medicine: ')
+            check_single_information(medicine)
+        elif choice == 3:
+            try:
+                medicine = input('Give name of medicine: ')
+                amount_of_pills = int(input('Give amount of pills: '))
+                add_pills(medicine, amount_of_pills)
+            except KeyError:
+                print('The name of medicine is wrong. Check if it contains dose of a pill.')
+        elif choice == 4:
+            medicine = input('Give name of medicine: ')
+            new_daily_dose = int(input('Give new daily dose: '))
+            change_daily_dose(medicine, new_daily_dose)
+        elif choice == 5:
+            pass
+        elif choice == 6:
+            medicine = input('Give name of medicine you want to remove: ')
+            remove_medicine_from_file(medicine)
+        else:
+            print('Try again.')
+        
+        does_continue = input("""
+Do you wan't to continue? If yes type 'y'. If not, press any other button.
+Your choice: """)
+        if does_continue.lower() == 'y':
+            continue
+        else:
+            print('\n\nGood bye!')
+            break    

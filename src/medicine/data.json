@@ -1,16 +1,9 @@
 {
-    "aspiryna_100": {
-        "daily_dose": 200,
-        "mg_per_pill": 100,
-        "amount_of_mg": 5000,
-        "amount_of_pills": 50,
-        "initialization_date": "2024-08-10"
-    },
     "paracetamol_500": {
-        "daily_dose": 1500,
+        "daily_dose": 1000,
         "mg_per_pill": 500,
-        "amount_of_mg": 50000,
-        "amount_of_pills": 100,
+        "amount_of_mg": 100000,
+        "amount_of_pills": 200,
         "initialization_date": "2024-08-10"
     },
     "paracetamol_750": {
@@ -25,6 +18,13 @@
         "mg_per_pill": 600,
         "amount_of_mg": 24000,
         "amount_of_pills": 40,
+        "initialization_date": "2024-08-10"
+    },
+    "aspiryna_100": {
+        "daily_dose": 200,
+        "mg_per_pill": 100,
+        "amount_of_mg": 5000,
+        "amount_of_pills": 50,
         "initialization_date": "2024-08-10"
     }
 }

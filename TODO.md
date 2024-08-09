@@ -11,6 +11,10 @@
 
 3. [x] add_pills() nie aktualizuje ilości mg leku tylko ilość tabletek (bug)
 
+4. [ ] Popraw żeby w check_info() i check_single_info() było widać daily dose.
+
+5. [ ] Przetestuj run()/.
+
 ## Poprawki na potem:
 
 1. [x] Pomyśl jak zmieniać dzienną dawkę leku, którą przyjmuje pacjent
@@ -29,7 +33,7 @@
 
 7. [x] Funkcja obliczająca na ile dni zostało jeszcze leku na podstawie ilości dni, które jeszcze pozostały do wyczerpania
 
-8. [ ] Funkcja `run()`
+8. [x] Funkcja `run()`
 
 ## Użytkownik:
 
@@ -45,8 +49,10 @@
 
 ## Inne:
 
-1. [x] Pomyśl jakie funkcjonalności powinien mieć użytkownik (stworzenie leku, dodanie leku, sprawdzenie danych, etc.)
+1. [x] Pomyśl jakie funkcjonalności powinien mieć użytkownik (stworzenie leku, dodanie leku, sprawdzenie danych, etc.).
 
-2. [ ] Pamiętaj o dodaniu zapisywnaia historii zmian
+2. [ ] Pamiętaj o dodaniu zapisywnaia historii zmian.
 
-3. [ ] Pomyśl czy nie połączyć leków o tych samych dawkach przy zmianie dziennej dawki (change_daily_dose())
+3. [ ] Pomyśl czy nie połączyć leków o tych samych dawkach przy zmianie dziennej dawki (change_daily_dose()).
+
+4. [ ] Pomyśl co z logowaniem.
