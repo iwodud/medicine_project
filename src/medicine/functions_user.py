@@ -1,5 +1,6 @@
 from functions_files import import_from_file, export_to_file
 from functions_time import when_will_medicine_run_out
+from functions_medicines import get_selected_medicine
 
 
 def add_pills(medicine_name: str, amount_of_pills: int, file_name='data.json'):
@@ -39,12 +40,15 @@ def remove_medicine_from_file(key: str, file_name='data.json'):
         export_to_file(instances_dict)
 
 
-def check_single_information(medicine):
-    data = when_will_medicine_run_out(medicine)
+def check_single_information(medicine, file_name='data.json'):
+    date_data = when_will_medicine_run_out(medicine)
+    medicine_data = get_selected_medicine(medicine, file_name)
+    daily_dose = medicine_data[0]['daily_dose']
     print(f"""
 {medicine}
-days left: {data[1]} 
-finish date: {data[0]}""")
+days left: {date_data[1]} 
+finish date: {date_data[0]}
+daily dose: {daily_dose}""")
 
 
 def check_information():
@@ -73,7 +77,7 @@ def create_medicine():
 
 def run():
     while True:
-        choice = int(input('''Chose your action:
+        choice = input('''Chose your action:
     1. Check information about all medicines
     2. Check information about single medicine
     3. Add pills to chosen medicine
@@ -81,31 +85,32 @@ def run():
     5. Create medicine
     6. Remove medicine
     
-    Your action: '''))
+    Your action: ''')
     
-        if choice == 1:
+        if choice == '1':
             check_information()
-        elif choice == 2:
+        elif choice == '2':
             medicine = input('Give name of medicine: ')
             check_single_information(medicine)
-        elif choice == 3:
+        elif choice == '3':
             try:
                 medicine = input('Give name of medicine: ')
                 amount_of_pills = int(input('Give amount of pills: '))
                 add_pills(medicine, amount_of_pills)
             except KeyError:
                 print('The name of medicine is wrong. Check if it contains dose of a pill.')
-        elif choice == 4:
+        elif choice == '4':
             medicine = input('Give name of medicine: ')
             new_daily_dose = int(input('Give new daily dose: '))
             change_daily_dose(medicine, new_daily_dose)
-        elif choice == 5:
+        elif choice == '5':
             pass
-        elif choice == 6:
+        elif choice == '6':
             medicine = input('Give name of medicine you want to remove: ')
             remove_medicine_from_file(medicine)
         else:
-            print('Try again.')
+            print('\nWrong value, try again.\n')
+            continue
         
         does_continue = input("""
 Do you wan't to continue? If yes type 'y'. If not, press any other button.
@@ -113,5 +118,5 @@ Your choice: """)
         if does_continue.lower() == 'y':
             continue
         else:
-            print('\n\nGood bye!')
+            print('\nGood bye!')
             break    
