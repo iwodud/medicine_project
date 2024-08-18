@@ -69,13 +69,20 @@ def change_daily_dose(medicine_name: str, new_daily_dose: int):
         instances_dict[medicine_name]['daily_dose'] = new_daily_dose
         export_to_file(instances_dict)
     except KeyError:
-        print('You have to change daily dose of every medicine separately.\n')
+        print('The name of medicine is wrong. Check if it contains dose of a pill.\n')
 
 
 def create_medicine():
-    pass
+    print('give following information\n')
+    medicine_name = input('medicine name: ')
+    pill_dose = int(input('dose per pill: '))
+    daily_dose = int(input('daily dose: '))
+    initial_amount = int(input('initial amount of pills'))
+    name_of_instance = f'{medicine_name}_{pill_dose}'
+    
 
 def run():
+    print('HELLO!')
     while True:
         choice = input('''Chose your action:
     1. Check information about all medicines
@@ -118,5 +125,5 @@ Your choice: """)
         if does_continue.lower() == 'y':
             continue
         else:
-            print('\nGood bye!')
+            print('\nGOOD BYE!')
             break    

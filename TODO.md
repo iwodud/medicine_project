@@ -7,7 +7,7 @@
 
 1. [ ] Ogarnij testy
 
-2. [x] Popraw żeby w check_info() i check_single_info() było widać daily dose. !
+2. [x] Popraw żeby w check_info() i check_single_info() było widać daily dose.
 
 3. [ ] Przetestuj run(). !
 
